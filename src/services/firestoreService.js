@@ -1,8 +1,8 @@
 // src/services/firestoreService.js
 // Replaced Firebase Firestore with REST API calls to a MongoDB Atlas-backed server
 
-const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:4000';
-
+// Make sure there's no trailing slash
+const API_BASE = import.meta.env.VITE_API_URL || 'https://portfolio-server-one-zeta.vercel.app';
 // Function to get all projects
 export const getProjects = async () => {
   const res = await fetch(`${API_BASE}/projects`);
