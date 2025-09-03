@@ -1,0 +1,71 @@
+.brightness-slider {
+    --slider-width: 100px;
+    --slider-height: 50px;
+    --slider-bg: rgb(82, 82, 82);
+    --slider-border-radius: 9px;
+    --level-color: #fff;
+    --level-transition-duration: 0.1s;
+    --icon-margin: 15px;
+    --icon-color: #fff; /* Ensure the icon is visible (white color) */
+    --icon-size: 25px;
+
+    position: fixed;
+    left: 30px; /* Position on the left side */
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    z-index: 1000;
+}
+
+@media (min-width: 1367px) {
+    .brightness-slider {
+        display: inline-flex;
+    }
+}
+
+.brightness-slider .brightness {
+    --bg-color: #1f242d;
+    display: inline-block;
+    vertical-align: top;
+    color: var(--bg-color); /* Use the icon color variable */
+    width: var(--icon-size);
+    height: var(--icon-size);
+    pointer-events: none;
+    position: absolute; /* Position the icon absolutely inside the box */
+    left: 50%; /* Center the icon horizontally */
+    top: 50%; /* Center the icon vertically */
+    transform: translate(-50%, -50%); /* Adjust for perfect centering */
+    z-index: 1; /* Ensure the icon is above the slider */
+    font-size: var(--icon-size); /* Ensure the icon size is applied */
+}
+
+.brightness-slider .level {
+    -webkit-appearance: none;
+    appearance: none;
+    width: var(--slider-width);
+    height: var(--slider-height);
+    background: var(--slider-bg);
+    overflow: hidden;
+    border-radius: var(--slider-border-radius);
+    transition: height var(--level-transition-duration);
+    cursor: inherit;
+    transform: rotate(270deg);
+    position: relative; /* Ensure the slider is positioned relative for the icon */
+}
+
+.brightness-slider .level::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 0;
+    height: 0;
+    box-shadow: -200px 0 0 200px var(--level-color);
+}
+
+.brightness-slider .level::-moz-range-thumb {
+    width: 0;
+    height: 0;
+    border-radius: 0;
+    border: none;
+    box-shadow: -200px 0 0 200px var(--level-color);
+}

@@ -1,0 +1,121 @@
+.rotating-cards-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg-color);
+    overflow: hidden;
+  }
+  
+  .wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .inner {
+    --w: 400px;
+    --h: 600px;
+    --translateZ: calc((var(--w) + var(--h)) * 0.3);
+    --rotateX: -15deg;
+    --perspective: 2000px;
+    position: absolute;
+    width: var(--w);
+    height: var(--h);
+    transform: perspective(var(--perspective)) rotateX(var(--rotateX));
+    transform-style: preserve-3d;
+    animation: rotating 20s linear infinite;
+  }
+  
+  @keyframes rotating {
+    from {
+      transform: perspective(var(--perspective)) rotateX(var(--rotateX)) rotateY(0);
+    }
+    to {
+      transform: perspective(var(--perspective)) rotateX(var(--rotateX)) rotateY(1turn);
+    }
+  }
+  
+  .card {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 2px solid rgba(var(--color-card));
+    border-radius: 12px;
+    overflow: hidden;
+    transform: rotateY(calc((360deg / var(--quantity)) * var(--index))) translateZ(var(--translateZ));
+    transition: transform 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: rotateY(calc((360deg / var(--quantity)) * var(--index))) translateZ(calc(var(--translateZ) + 50px));
+  }
+  
+  .img {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background: radial-gradient(
+      circle,
+      rgba(var(--color-card), 0.2) 0%,
+      rgba(var(--color-card), 0.6) 80%,
+      rgba(var(--color-card), 0.9) 100%
+    );
+  }
+  
+  .card-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.7);
+    color: var(--text-color);
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+  }
+  
+  .card:hover .card-content {
+    transform: translateY(0);
+  }
+  
+  .card-content h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .card-content .btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background: var(--main-color);
+    border-radius: 4rem;
+    font-size: 1.4rem;
+    color: var(--second-bg-color);
+    text-decoration: none;
+    transition: 0.5s ease;
+  }
+  
+  .card-content .btn:hover {
+    box-shadow: 0 0 1rem var(--main-color);
+  }
+  
+  @media (max-width: 768px) {
+    .inner {
+      --w: 300px;
+      --h: 450px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .inner {
+      --w: 250px;
+      --h: 375px;
+    }
+  }
+  
+  

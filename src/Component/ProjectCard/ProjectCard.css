@@ -1,0 +1,194 @@
+/* Define CSS variables first */
+:root {
+  --main-color: rgb(0, 255, 214);
+  --secondary-color: rgb(8, 226, 96);
+  --bg-color: #00894d;
+  --text-color: #00894d;
+}
+
+/* Card Container */
+.parent {
+  width: 290px;
+  height: 300px;
+  perspective: 1000px;
+  margin: 20px;
+  position: relative;
+}
+
+/* Main Card Styles */
+.card {
+  height: 100%;
+  border-radius: 50px;
+  background: linear-gradient(135deg, var(--main-color) 0%, var(--secondary-color) 100%);
+  transition: all 0.5s ease-in-out;
+  transform-style: preserve-3d; /* Crucial for 3D */
+  box-shadow: rgba(5, 71, 17, 0) 40px 50px 25px -40px, rgba(5, 71, 17, 0.2) 0px 25px 25px -5px;
+}
+
+/* Glass Effect - Fixed border radius */
+.glass {
+  transform-style: preserve-3d;
+  position: absolute;
+  inset: 8px;
+  border-radius: 55px;
+  border-top-right-radius: 100%; /* Missing in modified code */
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0.349) 0%, rgba(255, 255, 255, 0.815) 100%);
+  transform: translate3d(0px, 0px, 25px); /* 3D positioning */
+  border-left: 1px solid white;
+  border-bottom: 1px solid white;
+  transition: all 0.5s ease-in-out;
+  z-index: 2;
+  pointer-events: none; /* do not block clicks */
+}
+
+/* Content Section */
+.content {
+  padding: 100px 60px 0px 30px;
+  transform: translate3d(0, 0, 26px); /* Maintain 3D depth */
+}
+
+.content .title {
+  display: block;
+  color: var(--bg-color);
+  font-weight: 900;
+  font-size: 20px;
+}
+
+.content .text {
+  display: block;
+  color: rgba(0, 137, 78, 0.764);
+  font-size: 15px;
+  margin-top: 20px;
+}
+
+/* Bottom Section - Fixed selector specificity */
+.bottom {
+  padding: 10px 12px;
+  transform-style: preserve-3d;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transform: translate3d(0, 0, 26px);
+}
+
+/* Tech Stack Icons - Restored transition delays */
+.social-buttons-container {
+  display: flex;
+  gap: 10px;
+  transform-style: preserve-3d;
+}
+
+.social-button {
+  width: 35px;
+  aspect-ratio: 1;
+  padding: 5px;
+  background: rgb(255, 255, 255);
+  border-radius: 50%;
+  border: none;
+  display: grid;
+  place-content: center;
+  box-shadow: rgba(5, 71, 17, 0.5) 0px 7px 5px -5px;
+  
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+.bottom .social-buttons-container .social-button:hover {
+  background: black;
+}
+/* Restored staggered transitions */
+.social-button:nth-child(1) { transition-delay: 0.4s; }
+.social-button:nth-child(2) { transition-delay: 0.6s; }
+.social-button:nth-child(3) { transition-delay: 0.8s; }
+
+.social-button svg {
+  width: 40px;
+  fill: #19c2ab;
+}
+
+/* View More Button */
+.view-more {
+  display: flex;
+  align-items: center;
+  width: 40%;
+  justify-content: flex-end;
+  transition: all 0.2s ease-in-out;
+}
+
+.view-more-button {
+  background: none;
+  border: none;
+  color: var(--bg-color);
+  font-weight: bolder;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+/* Logo Circles - Fixed transform values */
+.logo {
+  position: absolute;
+  right: 0;
+  top: 0;
+ 
+  transform-style: preserve-3d;
+}
+
+.circle {
+  display: block;
+  position: absolute;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  box-shadow: rgba(100, 100, 111, 0.2) -10px 10px 20px 0px;
+  backdrop-filter: blur(5px);
+  background: rgba(0, 249, 203, 0.2);
+  transition: all 0.5s ease-in-out;
+  color: #1f242d;
+}
+
+/* Circle positions with proper 3D translations */
+.circle1 { width: 170px; transform: translate3d(0, 0, 20px); top: 8px; right: 8px; }
+.circle2 { width: 140px; transform: translate3d(0, 0, 40px); transition-delay: 0.4s;  top: 10px;
+  right: 10px;
+  -webkit-backdrop-filter: blur(1px);
+  backdrop-filter: blur(1px);}
+.circle3 { width: 110px; transform: translate3d(0, 0, 60px); transition-delay: 0.8s; top: 17px;
+  right: 17px; }
+.circle4 { width: 80px; transform: translate3d(0, 0, 80px); transition-delay: 1.2s; top: 23px;
+  right: 23px; }
+.circle5 { width: 50px; transform: translate3d(0, 0, 100px); display: grid; place-content: center; transition-delay: 1.6s; top: 30px;
+  right: 30px;}
+
+/* Hover Animations - Fixed specific selectors */
+.parent:hover .card {
+  transform: rotate3d(1, 1, 0, 30deg);
+  box-shadow: rgba(5, 71, 17, 0.3) 30px 50px 25px -40px, rgba(5, 71, 17, 0.1) 0px 25px 30px 0px;
+}
+
+.parent:hover .card .bottom .social-buttons-container .social-button {
+  transform: translate3d(0, 0, 50px);
+  box-shadow: rgba(5, 71, 17, 0.2) -5px 20px 10px 0px;
+}
+
+.parent:hover .card .logo .circle2 { transform: translate3d(0, 0, 60px); }
+.parent:hover .card .logo .circle3 { transform: translate3d(0, 0, 80px); }
+.parent:hover .card .logo .circle4 { transform: translate3d(0, 0, 100px); }
+.parent:hover .card .logo .circle5 { transform: translate3d(0, 0, 120px); }
+
+/* Dark Mode Fixes */
+.dark .card {
+  background: linear-gradient(135deg, var(--main-color) 0%, rgb(8, 226, 96) 100%);
+}
+
+.dark .content .title {
+  color: var(--text-color);
+}
+
+.dark .content .text {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.dark .view-more-button {
+  color: var(--text-color);
+}

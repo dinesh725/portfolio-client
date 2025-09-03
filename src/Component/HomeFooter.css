@@ -1,0 +1,122 @@
+.home-footer {
+  /* background-color: var(--second-bg-color); */
+  padding: 4rem 0;
+  text-align: center;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.social-buttons {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.social-btn {
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background-color: transparent;
+  position: relative;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: all .3s;
+}
+
+.icon-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  backdrop-filter: blur(4px);
+  letter-spacing: 0.8px;
+  border-radius: 10px;
+  transition: all .3s;
+  border: 1px solid rgba(156, 156, 156, 0.466);
+  color: white;
+  z-index: 1;
+}
+
+.btn-bg {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  border-radius: 9px;
+  pointer-events: none;
+  transition: all .3s;
+}
+
+/* Instagram gradient */
+.instagram .btn-bg {
+  background: #f09433;
+  background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  background: -webkit-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+
+/* Twitter gradient */
+.twitter .btn-bg {
+  background: #1da1f2;
+  background: linear-gradient(45deg, #1da1f2 0%, #19608f 100%);
+}
+
+/* Discord gradient */
+.github .btn-bg {
+  background: #fbfbfc;
+  background: linear-gradient(45deg, #5865f2 0%, #7289da 100%);
+}
+
+/* LinkedIn gradient */
+.linkedin .btn-bg {
+  background: #0077b5;
+  background: linear-gradient(45deg, #0077b5 0%, #00a0dc 100%);
+}
+
+.social-btn:hover .btn-bg {
+  transform: rotate(35deg);
+  transform-origin: bottom;
+}
+
+.social-btn:hover .icon-container {
+  background-color: rgba(156, 156, 156, 0.466);
+}
+
+.copyright {
+  font-size: 1.4rem;
+  color: var(--text-color);
+}
+
+.designer-link {
+  color: var(--main-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.designer-link:hover {
+  color: #fff;
+}
+
+/* Light mode adjustments */
+.home-footer.light .icon-container {
+  /* color: var(--text-color); */
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+.home-footer.light .designer-link:hover {
+  color: var(--main-color);
+}
+

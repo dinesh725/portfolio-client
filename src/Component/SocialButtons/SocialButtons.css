@@ -1,0 +1,107 @@
+/* SocialButtons.css */
+@import url('https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css');
+
+/* Perfect circle fix */
+.icon-static,
+.icon-animated,
+.social-button-container,
+.social-link {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.social-container-wrapper {
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+    padding: 2rem;
+    -webkit-box-reflect: below 5px linear-gradient(transparent, rgba(0, 0, 0, 0.1));
+}
+
+.social-button-container {
+    height: 60px;
+    width: 60px; /* Added width for perfect circle */
+    overflow: hidden;
+    border-radius: 50%;
+    transition: transform 0.2s;
+}
+
+.social-link {
+    display: block;
+    position: relative;
+    width: 60px; /* Match container size */
+    height: 60px;
+}
+
+.icon-static,
+.icon-animated {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    position: absolute;
+    transition: transform 0.4s cubic-bezier(0.46, -0.78, 0.5, 1.56);
+}
+
+/* Icon sizing fixes */
+.icon-static i,
+.icon-animated i {
+    font-size: 28px;
+    display: block; /* Remove inline spacing */
+    line-height: 1; /* Remove line-height spacing */
+    width: 1em; /* Fix width */
+    height: 1em; /* Fix height */
+}
+
+/* Rest of the CSS remains the same */
+/* ... (keep the same remaining styles as previous version) */
+
+.icon-static {
+    background: white;
+    z-index: 2;
+}
+
+.icon-static i {
+    font-size: 24px;
+    color: #333;
+}
+
+.icon-animated {
+    transform: translateY(60px);
+    z-index: 1;
+}
+
+.icon-animated i {
+    font-size: 24px;
+    color: white;
+}
+
+.social-button-container:hover .icon-static {
+    transform: translateY(-60px);
+}
+
+.social-button-container:hover .icon-animated {
+    transform: translateY(0);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .social-container-wrapper {
+        gap: 15px;
+        padding: 1rem;
+    }
+    
+    .social-link {
+        width: 45px;
+        height: 45px;
+    }
+    
+    /* .icon-static,
+    .icon-animated {
+        width: 45px;
+        height: 45px;
+    } */
+}
