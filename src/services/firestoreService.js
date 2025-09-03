@@ -64,10 +64,11 @@ export const uploadImage = async (file) => {
     method: 'POST',
     body: form,
   });
-  if (!res.ok) throw new Error(await res.text() || `Failed to upload image: ${res.status}`);
+  if (!res.ok) {
+    const error = await res.text();
+    console.error('Upload error:', error);
+    throw new Error(error || 'Failed to upload image');
+  }
   const data = await res.json();
-  const path = data.url || '';
-  // If returned path is relative (e.g., /uploads/xxx), prefix with API_BASE
-  const isAbsolute = /^https?:\/\//i.test(path);
-  return isAbsolute ? path : `${API_BASE}${path}`;
+  return data.url; // This should be the full URL
 };
