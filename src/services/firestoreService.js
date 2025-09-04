@@ -60,15 +60,23 @@ export const getTechnologiesMeta = async () => {
 export const uploadImage = async (file) => {
   const form = new FormData();
   form.append('image', file);
-  const res = await fetch(`${API_BASE}/upload/image`, {
-    method: 'POST',
-    body: form,
-  });
-  if (!res.ok) {
-    const error = await res.text();
+  
+  try {
+    const res = await fetch(`${API_BASE}/upload/image`, {
+      method: 'POST',
+      body: form,
+    });
+    
+    if (!res.ok) {
+      const error = await res.text();
+      throw new Error(error || 'Failed to upload image');
+    }
+    
+    const data = await res.json();
+    return data.url; // This will be the Cloudinary URL
+    
+  } catch (error) {
     console.error('Upload error:', error);
-    throw new Error(error || 'Failed to upload image');
+    throw error;
   }
-  const data = await res.json();
-  return data.url; // This should be the full URL
 };
