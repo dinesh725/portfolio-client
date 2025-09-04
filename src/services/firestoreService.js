@@ -2,7 +2,7 @@
 // Replaced Firebase Firestore with REST API calls to a MongoDB Atlas-backed server
 
 // Make sure there's no trailing slash
-const API_BASE = import.meta.env.VITE_API_URL || 'https://portfolio-server-one-zeta.vercel.app';
+const API_BASE = import.meta.env.VITE_API_URL || 'https://portfolio-server-one-zeta.vercel.app/api';
 // Function to get all projects
 export const getProjects = async () => {
   const res = await fetch(`${API_BASE}/projects`);
@@ -62,7 +62,11 @@ export const uploadImage = async (file) => {
   form.append('image', file);
   
   try {
-    const res = await fetch(`${API_BASE}/upload/image`, {
+    // Make sure we're using the correct endpoint
+    const uploadUrl = `${API_BASE}/api/upload/image`;
+    console.log('Uploading to:', uploadUrl);
+    
+    const res = await fetch(uploadUrl, {
       method: 'POST',
       body: form,
     });
