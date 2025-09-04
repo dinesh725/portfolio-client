@@ -101,7 +101,18 @@ const ProjectDetails = ({ project, onClose, onEdit, onDelete }) => {
       {/* Project description */}
       <div className="project-description">
         <h4>About the Project</h4>
-        <p className="project-description-text">{project.fullDescription}</p>
+        <div 
+          className="project-description-text" 
+          style={{ 
+            whiteSpace: 'pre-wrap',
+            lineHeight: '1.6',
+            marginTop: '1rem',
+            fontSize: '1.1rem',
+            color: 'var(--text-color)'
+          }}
+        >
+          {project.fullDescription}
+        </div>
       </div>
 
       {/* Features list */}

@@ -96,9 +96,39 @@
     margin-bottom: 2rem;
   }
   
-  h4 {
+  .project-description h4,
+  .project-features h4,
+  .project-tech h4 {
     color: var(--main-color);
-    font-size: 2rem;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    display: inline-block;
+  }
+
+  .project-description h4::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 50px;
+    height: 3px;
+    background: var(--main-color);
+    border-radius: 3px;
+  }
+
+  .project-description-text {
+    color: var(--text-color);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    margin-bottom: 1.5rem;
+    font-family: inherit;
+    padding: 0.5rem 0;
+    /* Preserve new lines and spaces */
+    white-space-collapse: preserve;
+    text-wrap: pretty;
     margin-bottom: 1rem;
   }
   
@@ -139,13 +169,6 @@
     color: var(--second-bg-color);
   }
 
-  .project-description-text {
-    color: var(--text-color);
-    font-size: 1.6rem;
-    line-height: 1.5;
-    margin-bottom: 1rem;
-  }
-  
   /* Inline delete confirmation */
   .delete-confirm {
     display: inline-flex;
