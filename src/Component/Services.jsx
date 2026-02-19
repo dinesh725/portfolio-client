@@ -2,6 +2,8 @@ import { motion } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 import { useState } from "react"
 import "./Services.css"
+import { Helmet } from "react-helmet-async"
+
 
 const ServiceCard = ({ icon, title, description, fullDescription, delay }) => {
   const [ref, inView] = useInView({
@@ -99,6 +101,10 @@ const Services = () => {
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
     >
+      <Helmet>
+        <title>Services | Dinesh Khatua</title>
+      </Helmet>
+
       <motion.h2
        className="heading"
        initial={{ y: -50, opacity: 0 }}

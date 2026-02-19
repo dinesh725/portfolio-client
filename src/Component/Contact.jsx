@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import emailjs from "@emailjs/browser";
 import SocialButtons from "./SocialButtons/SocialButtons";
 import "./Contact.css";
+import { Helmet } from "react-helmet-async";
 
 const Contact = () => {
   const form = useRef();
@@ -34,7 +35,7 @@ const Contact = () => {
 
     emailjs
       .sendForm(
-        "service_3ysupwb",
+        "service_far5wrq",
         "template_qf4qd97",
         form.current,
         "for9eIINThsoZDtYs"
@@ -75,6 +76,10 @@ const Contact = () => {
 
   return (
     <section className="contact" id="contact">
+      <Helmet>
+        <title>Contact | Dinesh Khatua</title>
+      </Helmet>
+
       <motion.h2
         className="heading"
         initial={{ y: -50, opacity: 0 }}

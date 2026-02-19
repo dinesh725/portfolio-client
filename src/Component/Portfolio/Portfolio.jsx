@@ -1,11 +1,14 @@
 // src/components/Portfolio.js
 import React, { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
 import { Routes, Route, useNavigate, useParams } from 'react-router-dom';
 import ProjectCard from '../ProjectCard/ProjectCard';
 import ProjectDetails from '../ProjectDetails/ProjectDetails';
 import { getProjects, deleteProject } from '../../services/firestoreService';
 import ProjectForm from '../ProjectForm';
 import './Portfolio.css';
+import { Helmet } from "react-helmet-async"
+
 
 // Main Portfolio component
 const Portfolio = () => {
@@ -42,11 +45,15 @@ const Portfolio = () => {
 
   return (
     <section className="portfolio" id="portfolio">
-      <h2 className="heading" initial={{ y: -50, opacity: 0 }}
+      <Helmet>
+        <title>Portfolio | Dinesh Khatua</title>
+      </Helmet>
+
+      <motion.h2 className="heading" initial={{ y: -50, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         viewport={{ once: true }}>
         Latest <span>Projects</span>
-      </h2>
+      </motion.h2>
 
       <Routes>
         <Route path="/" element={

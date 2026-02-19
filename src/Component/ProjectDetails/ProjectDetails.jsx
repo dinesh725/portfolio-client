@@ -2,6 +2,8 @@ import { motion } from "framer-motion"
 import { useState } from "react"
 import "./ProjectDetails.css"
 import { FaTrash, FaEdit } from "react-icons/fa"
+import { Helmet } from "react-helmet-async"
+
 
 const ProjectDetails = ({ project, onClose, onEdit, onDelete }) => {
   const [confirmOpen, setConfirmOpen] = useState(false)
@@ -41,6 +43,10 @@ const ProjectDetails = ({ project, onClose, onEdit, onDelete }) => {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
     >
+      <Helmet>
+        <title>Project Details | Dinesh Khatua</title>
+      </Helmet>
+
       {/* Close button */}
       <button className="close-button" onClick={onClose}>
         × 

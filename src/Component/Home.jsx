@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import "./Home.css";
+import { Helmet } from "react-helmet-async";
 
 const Home = () => {
   const text = "Frontend Web Developer";
@@ -127,6 +128,9 @@ const Home = () => {
 
   return (
     <section className="home" id="home">
+      <Helmet>
+        <title>Dinesh Khatua | Frontend Developer</title>
+      </Helmet>
       <div className="home-content">
         <h3>Hello, I'm</h3>
         <h1>DINESH KHATUA</h1>

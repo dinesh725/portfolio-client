@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './About.css';
+import { Helmet } from 'react-helmet-async';
 
 const AboutSection = () => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -41,7 +42,9 @@ const AboutSection = () => {
 
   return (
     <section className={`about-section ${isExpanded ? 'expanded' : ''}`}>
-     
+        <Helmet>
+          <title>About | Dinesh Khatua</title>
+        </Helmet>
       
       <div className={`about-content ${isExpanded ? 'expanded' : ''}`}>
         <h1 className='about-me'>Hello There  So I'm A</h1>

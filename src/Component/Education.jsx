@@ -1,6 +1,7 @@
 import { motion } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 import "./Education.css"
+import { Helmet } from "react-helmet-async"
 
 const TimelineItem = ({ year, title, description, isLeft, delay }) => {
   const [ref, inView] = useInView({
@@ -74,6 +75,10 @@ const Education = () => {
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
     >
+      <Helmet>
+        <title>Education | Dinesh Khatua</title>
+      </Helmet>
+
       <motion.h2
         className="heading"
         initial={{ y: -50, opacity: 0 }}

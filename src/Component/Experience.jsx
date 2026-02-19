@@ -1,8 +1,14 @@
 import "./Experience.css"
+import { Helmet } from "react-helmet-async"
+
 
 const Experience = () => {
   return (
     <section className="experience" id="experience">
+      <Helmet>
+        <title>Experience | Dinesh Khatua</title>
+      </Helmet>
+
       <h2 className="heading" initial={{ y: -50, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         viewport={{ once: true }}>
@@ -10,32 +16,57 @@ const Experience = () => {
       </h2>
 
       <div className="experience-container">
-        {/* <div className="experience-box">
-          <h3>Frontend Developer</h3>
-          <h4>Tech Company - 2020-Present</h4>
-          <p>
-            Led frontend development for multiple projects, implementing responsive designs and optimizing performance.
-            Collaborated with cross-functional teams to deliver high-quality web applications.
-          </p>
-        </div> */}
 
+
+        {/* Internship */}
         <div className="experience-box">
           <h3>Web Developer Intern</h3>
-          <h4>StartUp - 2024/03-2024/06</h4>
-          <p>
-            Assisted in developing and maintaining company websites. Gained hands-on experience with modern web
-            technologies and best practices in web development.
+          <h4>Startup Company — 2024/03 to 2024/06</h4>
+
+          <p className="short-text">
+            Contributed to website development and gained practical experience in modern web technologies.
+          </p>
+
+          <p className="full-text">
+            Assisted in designing, developing, and maintaining responsive company websites,
+            ensuring cross-browser compatibility and smooth user experience.
+
+            Collaborated with senior developers to implement UI components, fix bugs,
+            optimize performance, and improve overall usability.
+
+            Gained practical experience working with HTML, CSS, JavaScript, and React,
+            while following clean coding practices and version control workflows.
+
+            Participated in real development cycles including testing, debugging,
+            deployment support, and implementing enhancements based on user feedback.
           </p>
         </div>
 
-        {/* <div className="experience-box">
-          <h3>Freelance Web Designer</h3>
-          <h4>Self-employed - 2018-2019</h4>
-          <p>
-            Designed and developed websites for small businesses and individuals. Managed client relationships and
-            delivered projects on time and within budget.
+
+         {/* MERN Training */}
+        <div className="experience-box">
+          <h3>MERN Stack Developer Trainee</h3>
+          <h4>JSpiders, Bangalore — 2024/09 to 2025/04</h4>
+
+          <p className="short-text">
+            Completed advanced MERN stack training and built real-world full-stack applications.
           </p>
-        </div> */}
+
+          <p className="full-text">
+            Completed advanced, real-time training in the MERN stack (MongoDB, Express.js, React.js, Node.js),
+            focusing on building scalable and production-ready web applications.
+
+            Developed multiple full-stack projects implementing responsive UI design, RESTful APIs,
+            authentication & authorization, database integration, and real-time data handling.
+
+            Strengthened frontend expertise using React, reusable components, state management,
+            and performance optimization, while also gaining hands-on experience in backend
+            architecture, server-side logic, and database design.
+
+            Followed industry best practices including clean code structure, Git version control,
+            debugging strategies, deployment workflows, and project lifecycle management.
+          </p>
+        </div>
       </div>
     </section>
   )
