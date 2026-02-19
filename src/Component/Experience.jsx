@@ -1,5 +1,6 @@
 import "./Experience.css"
 import { Helmet } from "react-helmet-async"
+import { motion } from "framer-motion"
 
 
 const Experience = () => {
@@ -9,11 +10,11 @@ const Experience = () => {
         <title>Experience | Dinesh Khatua</title>
       </Helmet>
 
-      <h2 className="heading" initial={{ y: -50, opacity: 0 }}
+      <motion.h2 className="heading" initial={{ y: -50, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         viewport={{ once: true }}>
         Work <span>Experience</span>
-      </h2>
+      </motion.h2>
 
       <div className="experience-container">
 
